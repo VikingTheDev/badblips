@@ -92,13 +92,15 @@ Citizen.CreateThread(function()
                 end
             end
 
-            -- Gather where all blips are for a specific character
-            for source, data in pairs(blip.members) do
-                if data then -- sanity check
-                    local ped = GetPlayerPed(source)
-                    if DoesEntityExist(ped) then
-                        local pos = GetEntityCoords(ped)
-                        blips_data = appendBlipsPacket(blips_data, blip_name, source, pos)
+            if blip._see_own_group then
+                -- Gather where all blips are for a specific character
+                for source, data in pairs(blip.members) do
+                    if data then -- sanity check
+                        local ped = GetPlayerPed(source)
+                        if DoesEntityExist(ped) then
+                            local pos = GetEntityCoords(ped)
+                            blips_data = appendBlipsPacket(blips_data, blip_name, source, pos)
+                        end
                     end
                 end
             end

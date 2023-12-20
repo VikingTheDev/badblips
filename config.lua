@@ -27,6 +27,7 @@ config = {
             _alpha = 255,
             _show_off_screen = false,
             _show_local_direction = false,
+            _see_own_group = false,
         },
         ['ems'] = {
             _color = 1,
